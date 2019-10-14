@@ -1,0 +1,73 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "njjj"
+    },
+    {
+      "categoryName": "category2",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "productName": "product111",
+      "category": 2,
+      "id": 6
+    },
+    {
+      "productName": "product112",
+      "category": 1,
+      "id": 7
+    },
+    {
+      "id": 8,
+      "productName": "product112",
+      "category": 1
+    },
+    {
+      "productName": "product112",
+      "category": 1,
+      "id": 9
+    },
+    {
+      "productName": "product112",
+      "category": 1,
+      "id": 11
+    },
+    {
+      "productName": "product112",
+      "category": 1,
+      "id": 12
+    },
+    {
+      "productName": "product112",
+      "category": 1,
+      "id": 13
+    },
+    {
+      "productName": "sdsdsd",
+      "category": 5,
+      "id": 15
+    },
+    {
+      "productName": "product1",
+      "category": 2,
+      "id": 17
+    }
+  ]
+}

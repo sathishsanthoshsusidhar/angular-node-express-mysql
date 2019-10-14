@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-title>Add Product</mat-card-title>
+  <mat-card-content>
+  <form [formGroup]="productForm">
+  <p>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Product" formControlName="productName">
+      <mat-hint align="end">Product</mat-hint>
+      <mat-error>Enter Product</mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>Select Category</mat-label>
+      <mat-select formControlName="category" >
+        <mat-option *ngFor="let category of categories; let i = index" [value]="category._id">{{category.categoryName}}</mat-option>
+      </mat-select>
+      <mat-hint align="end">Category</mat-hint>
+      <mat-error>Select Category</mat-error>
+    </mat-form-field>
+  </p>
+  <div class="button">
+    <button type="submit" [disabled]="!productForm.valid" mat-raised-button color="primary" (click)="addProduct()">ADD</button>
+  </div>
+  </form>
+  </mat-card-content>
+  </mat-card>

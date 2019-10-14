@@ -1,0 +1,60 @@
+<mat-card>
+        <div class="table-title">
+            <strong>Products Table</strong>
+        </div>
+        <div class="add-button-row">
+            <a mat-raised-button class="add-pro-btn-margin" routerLink="../add-product" color="primary">Add Product</a>
+            <span>
+              <a mat-raised-button routerLink="../category-list" color="accent">Add Category</a>
+          </span>
+          </div>
+        <div class="example-container mat-elevation-z8">
+            <mat-table #Table [dataSource]="ProductDataSource">
+
+                <!-- For ID -->
+                <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+                    <mat-cell *matCellDef="let product"> {{product._id}} </mat-cell>
+                </ng-container>
+
+                <!-- For Product -->
+                <ng-container matColumnDef="Product">
+                        <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>
+                        <mat-cell *matCellDef="let product"> {{product.productName}} </mat-cell>
+                    </ng-container>
+
+                <!-- For Category -->
+                <ng-container matColumnDef="Catergory">
+                    <mat-header-cell *matHeaderCellDef> Catergory </mat-header-cell>
+                    <mat-cell *matCellDef="let product" > {{product.category}} </mat-cell>
+                </ng-container>
+
+                <!-- For Edit -->
+                <ng-container matColumnDef="Edit">
+                    <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+                    <mat-cell *matCellDef="let product"> <button mat-raised-button color="accent" (click)="editProduct(product._id)">Edit</button> </mat-cell>
+                </ng-container>
+
+                <!-- For Delete -->
+                <ng-container matColumnDef="Delete">
+                    <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+                    <mat-cell *matCellDef="let product"> <button mat-raised-button color="warn" (click)="openDialog(product._id)">Delete</button></mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <!-- To use pagination in DataTable  -->
+
+            <!-- <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+            </mat-paginator> -->
+            <!-- <mat-paginator #paginator appStylePaginator[pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize"
+    [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
+            </mat-paginator> -->
+            <mat-paginator #paginator appStylePaginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"  (page)="pageEvent = handlePage($event)"></mat-paginator>
+            <!-- <mat-paginator appStylePaginator showFirstLastButtons  [length]="5"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator> -->
+        </div>
+    </mat-card>

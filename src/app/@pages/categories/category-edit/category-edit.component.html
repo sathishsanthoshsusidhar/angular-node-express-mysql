@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>Edit Category</mat-card-title>
+<mat-card-content>
+<form [formGroup]="categoryForm">
+<p>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Category" formControlName="categoryName">
+    <mat-hint align="end">Category</mat-hint>
+    <mat-error>Enter category</mat-error>
+  </mat-form-field>
+</p>
+<input type="hidden" formControlName="_id">
+<div class="button">
+  <button type="submit" [disabled]="!categoryForm.valid" mat-raised-button color="primary" (click)="updateCategory()">UPDATE</button>
+</div>
+</form>
+</mat-card-content>
+</mat-card>

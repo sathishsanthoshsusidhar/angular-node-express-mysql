@@ -1,0 +1,43 @@
+<mat-card>
+    <div class="table-title">
+        <strong>Category Table</strong>
+    </div>
+    <div class="add-button-row">
+        <a mat-raised-button routerLink="../add-category" color="primary">Add Category</a>
+      </div>
+    <div class="example-container mat-elevation-z8">
+        <mat-table #Table [dataSource]="MyDataSource">
+
+            <!-- For ID -->
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+                <mat-cell *matCellDef="let category"> {{category._id}} </mat-cell>
+            </ng-container>
+
+            <!-- For Category -->
+            <ng-container matColumnDef="Catergory">
+                <mat-header-cell *matHeaderCellDef> Catergory </mat-header-cell>
+                <mat-cell *matCellDef="let category"> {{category.categoryName}} </mat-cell>
+            </ng-container>
+
+            <!-- For Edit -->
+            <ng-container matColumnDef="Edit">
+                <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+                <mat-cell *matCellDef="let category"> <button mat-raised-button color="accent" (click)="editCategory(category._id)">Edit</button> </mat-cell>
+            </ng-container>
+
+            <!-- For Delete -->
+            <ng-container matColumnDef="Delete">
+                <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+                <mat-cell *matCellDef="let category"> <button mat-raised-button color="warn" (click)="openDialog(category._id)">Delete</button></mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <!-- To use pagination in DataTable  -->
+
+        <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+    </div>
+</mat-card>
